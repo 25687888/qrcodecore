@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+    }
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: "http://115.236.71.158:18081/nexus/content/repositories/releases/") {
+                    authentication(userName: "admin", password: "admin123")
+                }
+                pom.version = "1.0.0"
+                pom.artifactId = "qrcodecore"
+                pom.groupId = "com.sendinfo.mobile"
+            }
+        }
+    }
+}
